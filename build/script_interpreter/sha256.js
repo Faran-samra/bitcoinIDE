@@ -24,10 +24,14 @@ var Sha256 = {};
  * @returns {string} Hash of msg as hex character string
  */
 Sha256.hash = function(msg) {
-    // convert string to UTF-8, as SHA only deals with byte-streams
-    msg = msg.toString(16);
-    console.log('msg ' + msg);
-    msg = msg.utf8Encode();
+    // Convert a hex string to a byte string
+    var hex = msg;
+    var result = '';
+    
+    for (var c = 0; c < hex.length; c += 2)
+       result+=(String.fromCharCode(parseInt(hex.substr(c, 2), 16)));    
+    
+    msg = result;
     
     // constants [§4.2.2]
     var K = [

@@ -223,6 +223,15 @@ function BYTES_TO_DWORD(fourChars)
 
 function RMD(message)
 {
+    // Convert a hex string to a byte string
+    var hex = message;
+    var result = '';
+    
+    for (var c = 0; c < hex.length; c += 2)
+       result+=(String.fromCharCode(parseInt(hex.substr(c, 2), 16)));    
+    
+    message = result;
+
     var MDbuf   = new Array(RMDsize / 32);
     var hashcode   = new Array(RMDsize / 8);
     var length;  
