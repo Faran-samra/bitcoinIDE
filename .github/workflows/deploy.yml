@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - master  # Change to 'main' if your default branch is 'main'
+      - master  # Updated to match your repository's default branch
 
 jobs:
   build:
@@ -13,9 +13,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          submodules: false  # Disables recursive submodule checkout
+          submodules: 'false'  # Disable submodules; using string form for extra clarity
 
       - name: Build project
         run: |
           echo "Building project..."
-          # Add your build commands here
+          # Add your actual build commands here
