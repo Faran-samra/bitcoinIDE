@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - master  # Updated to match your repository's default branch
+      - master  # Use your repository's default branch
 
 jobs:
   build:
@@ -13,7 +13,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          submodules: 'false'  # Disable submodules; using string form for extra clarity
+          submodules: 'false'  # Disables recursive submodule checkout
+
+      - name: Remove problematic nested submodule
+        run: |
+          # Remove the nested submodule folder if it's not required
+          rm -rf build/script_interpreter/ripemd160
 
       - name: Build project
         run: |
