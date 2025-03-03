@@ -1,0 +1,21 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main  # Adjust this if you use a different branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: false  # This disables recursive submodule checkout
+
+      - name: Build project
+        run: |
+          echo "Building project..."
+          # Add your build commands here
