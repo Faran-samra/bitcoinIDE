@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - main  # Adjust this if you use a different branch
+      - master  # Change to 'main' if your default branch is 'main'
 
 jobs:
   build:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          submodules: false  # This disables recursive submodule checkout
+          submodules: false  # Disables recursive submodule checkout
 
       - name: Build project
         run: |
