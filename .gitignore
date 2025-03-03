@@ -6,6 +6,7 @@
 
 # Project files that should not be in the repo
 .*
+!/.github/
 \#*
 !/.gitignore
 .*.gz
